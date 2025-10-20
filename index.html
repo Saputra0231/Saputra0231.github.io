@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Script Obfuscator</title>
+    <title>Script Bikinan GW - RyDev</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,8 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,438 +23,358 @@
         }
         
         .container {
-            background: rgba(20, 30, 48, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 700px;
             width: 100%;
-            max-width: 600px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        h1 {
             text-align: center;
-            margin-bottom: 20px;
-            color: #ff7b25;
-            font-size: 32px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .description {
-            text-align: center;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            color: #a9b7c6;
-            font-size: 16px;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #4fc3f7;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(10, 15, 25, 0.7);
-            color: #fff;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-            font-family: monospace;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #4fc3f7;
-            box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.3);
-        }
-        
-        .btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(90deg, #ff7b25, #ff5252);
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(255, 82, 82, 0.4);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 8px;
-            background: rgba(10, 15, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: none;
-        }
-        
-        .result-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #4fc3f7;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .code {
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        
-        .copy-btn {
-            background: rgba(79, 195, 247, 0.2);
-            color: #4fc3f7;
-            border: 1px solid #4fc3f7;
-            padding: 8px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .copy-btn:hover {
-            background: rgba(79, 195, 247, 0.3);
-        }
-        
-        .tabs {
-            display: flex;
-            margin-bottom: 20px;
-            background: rgba(10, 15, 25, 0.7);
-            border-radius: 8px;
+            position: relative;
             overflow: hidden;
         }
         
-        .tab {
-            flex: 1;
-            padding: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #ff0000, #ff9900, #33cc33, #3399ff, #cc33ff);
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 5px;
+        }
+        
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .title-section {
+            text-align: left;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
             font-weight: 500;
         }
         
-        .tab.active {
-            background: rgba(255, 123, 37, 0.2);
-            color: #ff7b25;
+        .warning-box {
+            background-color: #fff9e6;
+            border-left: 5px solid #ffcc00;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
         }
         
-        .tab-content {
-            display: none;
+        .warning-box::before {
+            content: "⚠️";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5rem;
         }
         
-        .tab-content.active {
-            display: block;
+        .warning-text {
+            font-size: 1.5rem;
+            color: #cc6600;
+            font-weight: bold;
+            line-height: 1.5;
         }
         
-        .info {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255, 123, 37, 0.1);
-            border-radius: 8px;
-            border-left: 4px solid #ff7b25;
-            font-size: 14px;
+        .highlight {
+            color: #ff3300;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin: 25px 0;
+            color: #444;
             line-height: 1.6;
+            padding: 0 10px;
         }
         
-        .info-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #ff7b25;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .level-info {
+        .features {
             display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-            font-size: 14px;
-            color: #a9b7c6;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 150px;
+            margin: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature i {
+            font-size: 2rem;
+            color: #ff3300;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-button:active {
+            transform: translateY(1px);
+        }
+        
+        .whatsapp-button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .whatsapp-button:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        .button-icon {
+            font-size: 1.6rem;
+            margin-right: 12px;
         }
         
         .footer {
-            text-align: center;
-            margin-top: 25px;
-            color: #a9b7c6;
-            font-size: 14px;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .title-section {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .warning-text {
+                font-size: 1.3rem;
+            }
+            
+            .cta-text {
+                font-size: 1.1rem;
+            }
+            
+            .features {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Roblox Script Obfuscator</h1>
-        <p class="description">Tool untuk menyembunyikan dan mengenkripsi script Roblox dengan teknik encoding</p>
-        
-        <div class="tabs">
-            <div class="tab active" onclick="switchTab(0)">Obfuscator</div>
-            <div class="tab" onclick="switchTab(1)">Custom Script</div>
-            <div class="tab" onclick="switchTab(2)">Panduan</div>
-        </div>
-        
-        <div class="tab-content active">
-            <div class="input-group">
-                <label for="scriptUrl">URL Script</label>
-                <input type="text" id="scriptUrl" placeholder="Masukkan URL script (contoh: https://contoh.com/script.lua)" value="https://raw.githubusercontent.com/Saputra0231/BringV2ByRy/refs/heads/main/BringByRyv2.lua">
+        <div class="header">
+            <div class="logo-container">
+                <!-- GANTI LOGO DI SINI -->
+                <!-- Hapus gambar di bawah ini dan ganti dengan logo kamu -->
+                <img src="https://cdn.discordapp.com/attachments/1415642598646747216/1429945417197686924/file_00000000342c6206ba96977dd09415e4.png?ex=68f7fbf2&is=68f6aa72&hm=c750247311e448bc69da77ab33f3bdc9a5d7367fcef6e69aa700bc33283eb286&" alt="RyDev Logo" class="logo">
             </div>
-            
-            <div class="input-group">
-                <label for="obfuscationLevel">Tingkat Obfuscation <span id="levelDesc">(Medium - Encoding Base64)</span></label>
-                <select id="obfuscationLevel" onchange="updateLevelDesc()">
-                    <option value="low">Rendah (URL Encoding)</option>
-                    <option value="medium" selected>Medium (Base64 Encoding)</option>
-                    <option value="high">Tinggi (Custom Encoding)</option>
-                    <option value="extreme">Extreme (Multi-layer Encoding)</option>
-                </select>
-                <div class="level-info">
-                    <span>⬆ Tingkat kesulitan reverse engineer</span>
-                    <span>Keamanan: ⭐</span>
-                </div>
-            </div>
-            
-            <button class="btn" onclick="processScript()">Generate Obfuscated Script</button>
-            
-            <div class="result" id="result">
-                <div class="result-title">
-                    <span>Script Tersembunyi:</span>
-                    <button class="copy-btn" onclick="copyToClipboard()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                        </svg>
-                        Salin
-                    </button>
-                </div>
-                <div class="code" id="outputCode"></div>
-                <p><strong>Cara penggunaan:</strong> Salin script di atas dan jalankan di executor Roblox Anda.</p>
+            <div class="title-section">
+                <h1>Script Bikinan GW</h1>
+                <p class="subtitle">Original dari RyDev</p>
             </div>
         </div>
         
-        <div class="tab-content">
-            <div class="input-group">
-                <label for="customScript">Kode Kustom Lua</label>
-                <textarea id="customScript" placeholder="Masukkan kode Lua kustom Anda di sini">-- Contoh kode custom
-print("Hello Roblox!")
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25</textarea>
+        <div class="warning-box">
+            <p class="warning-text">
+                EITSSS... MAU MALING SOURCE SCRIPT YA?<br>
+                MENDING LU BUY AJA DI <span class="highlight">RyDev</span>!
+            </p>
+        </div>
+        
+        <p class="cta-text">
+            Jangan coba-coba nyolong script gw!<br>
+            Kalo mau pake, beli aja langsung. Murah kok!
+        </p>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <p>Original</p>
             </div>
-            
-            <div class="input-group">
-                <label for="customObfuscationLevel">Tingkat Obfuscation</label>
-                <select id="customObfuscationLevel">
-                    <option value="low">Rendah (URL Encoding)</option>
-                    <option value="medium" selected>Medium (Base64 Encoding)</option>
-                    <option value="high">Tinggi (Custom Encoding)</option>
-                </select>
+            <div class="feature">
+                <i class="fas fa-tools"></i>
+                <p>Update Terus</p>
             </div>
-            
-            <button class="btn" onclick="processCustomScript()">Obfuscate Kode Kustom</button>
-            
-            <div class="result" id="customResult">
-                <div class="result-title">
-                    <span>Kode Terobfuscate:</span>
-                    <button class="copy-btn" onclick="copyCustomToClipboard()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                        </svg>
-                        Salin
-                    </button>
-                </div>
-                <div class="code" id="customOutputCode"></div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <p>Support</p>
             </div>
         </div>
         
-        <div class="tab-content">
-            <div class="info">
-                <div class="info-title">Panduan Penyembunyian Script</div>
-                <p>1. <strong>Obfuscation Rendah</strong> - Menggunakan URL encoding sederhana. Mudah dibaca kembali.</p>
-                <p>2. <strong>Obfuscation Medium</strong> - Menggunakan encoding Base64. Lebih sulit dibaca langsung.</p>
-                <p>3. <strong>Obfuscation Tinggi</strong> - Menggunakan encoding custom dengan teknik splitting.</p>
-                <p>4. <strong>Obfuscation Extreme</strong> - Multi-layer encoding dengan teknik obfuscation tambahan.</p>
-                <br>
-                <p>Semakin tinggi tingkat obfuscation, semakin sulit script Anda dibaca oleh orang lain, tetapi mungkin mempengaruhi performa eksekusi.</p>
-                <br>
-                <p><strong>Catatan:</strong> Tool ini hanya untuk tujuan edukasi. Selalu patuhi Terms of Service dari platform game.</p>
-            </div>
-        </div>
+        <a href="https://wa.me/6285179583026?text=Halo%20Gw%20mau%20beli%20script%20nya" class="whatsapp-button" target="_blank">
+            <span class="button-icon">💬</span> CHAT GW DI WA
+        </a>
         
-        <div class="footer">
-            <p>Roblox Script Obfuscator v1.2 | © 2023</p>
-        </div>
+        <p class="footer">
+            &copy; 2023 RyDev • Jangan dicuri ya bro!
+        </p>
     </div>
 
     <script>
-        function switchTab(tabIndex) {
-            document.querySelectorAll('.tab').forEach((tab, index) => {
-                if (index === tabIndex) {
-                    tab.classList.add('active');
-                } else {
-                    tab.classList.remove('active');
+        // Tambah efek ketik untuk teks peringatan
+        document.addEventListener('DOMContentLoaded', function() {
+            const warningText = document.querySelector('.warning-text');
+            const originalText = warningText.innerHTML;
+            warningText.innerHTML = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    warningText.innerHTML += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
                 }
+            };
+            
+            // Mulai efek ketik setelah 1 detik
+            setTimeout(typeWriter, 1000);
+            
+            // Animasi tombol WhatsApp
+            const waButton = document.querySelector('.whatsapp-button');
+            waButton.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
             });
             
-            document.querySelectorAll('.tab-content').forEach((content, index) => {
-                if (index === tabIndex) {
-                    content.classList.add('active');
-                } else {
-                    content.classList.remove('active');
-                }
+            waButton.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
             });
-        }
-        
-        function updateLevelDesc() {
-            const level = document.getElementById('obfuscationLevel').value;
-            const desc = document.getElementById('levelDesc');
             
-            switch(level) {
-                case 'low':
-                    desc.textContent = '(Rendah - URL Encoding)';
-                    break;
-                case 'medium':
-                    desc.textContent = '(Medium - Base64 Encoding)';
-                    break;
-                case 'high':
-                    desc.textContent = '(Tinggi - Custom Encoding)';
-                    break;
-                case 'extreme':
-                    desc.textContent = '(Extreme - Multi-layer Encoding)';
-                    break;
-            }
-        }
-        
-        function processScript() {
-            const url = document.getElementById('scriptUrl').value;
-            const level = document.getElementById('obfuscationLevel').value;
-            
-            if (!url) {
-                alert('Silakan masukkan URL script!');
-                return;
-            }
-            
-            let obfuscatedScript;
-            
-            switch(level) {
-                case 'low':
-                    // URL encoding sederhana
-                    obfuscatedScript = `loadstring(game:HttpGet("${url}"))()`;
-                    break;
-                case 'medium':
-                    // Base64 encoding
-                    const base64Url = btoa(url);
-                    obfuscatedScript = `loadstring(game:HttpGet("https://whoamibypass.online/api/loader?data=${base64Url}"))()`;
-                    break;
-                case 'high':
-                    // Custom encoding dengan splitting
-                    const encodedUrl = btoa(url).split('').reverse().join('');
-                    obfuscatedScript = `local _='${encodedUrl}';loadstring(game:HttpGet(_:reverse()))()`;
-                    break;
-                case 'extreme':
-                    // Multi-layer encoding
-                    const layer1 = btoa(url);
-                    const layer2 = btoa(layer1).split('').reverse().join('');
-                    obfuscatedScript = `local a='${layer2}';local b=a:reverse();local c=((b).gsub(b, function(x) return x end));loadstring(game:HttpGet(b))()`;
-                    break;
-            }
-            
-            document.getElementById('outputCode').textContent = obfuscatedScript;
-            document.getElementById('result').style.display = 'block';
-        }
-        
-        function processCustomScript() {
-            const customScript = document.getElementById('customScript').value;
-            const level = document.getElementById('customObfuscationLevel').value;
-            
-            if (!customScript) {
-                alert('Silakan masukkan kode custom!');
-                return;
-            }
-            
-            let obfuscatedScript;
-            
-            switch(level) {
-                case 'low':
-                    // URL encoding
-                    obfuscatedScript = `loadstring("${encodeURIComponent(customScript)}")()`;
-                    break;
-                case 'medium':
-                    // Base64 encoding
-                    const base64Code = btoa(unescape(encodeURIComponent(customScript)));
-                    obfuscatedScript = `loadstring(game:HttpGet("https://whoamibypass.online/api/loader?data=${base64Code}"))()`;
-                    break;
-                case 'high':
-                    // Custom encoding
-                    const encodedCode = btoa(unescape(encodeURIComponent(customScript))).split('').reverse().join('');
-                    obfuscatedScript = `local _='${encodedCode}';loadstring(_:reverse())()`;
-                    break;
-            }
-            
-            document.getElementById('customOutputCode').textContent = obfuscatedScript;
-            document.getElementById('customResult').style.display = 'block';
-        }
-        
-        function copyToClipboard() {
-            const code = document.getElementById('outputCode');
-            navigator.clipboard.writeText(code.textContent)
-                .then(() => alert('Script berhasil disalin!'))
-                .catch(err => {
-                    console.error('Gagal menyalin: ', err);
-                    alert('Gagal menyalin script. Silakan salin secara manual.');
-                });
-        }
-        
-        function copyCustomToClipboard() {
-            const code = document.getElementById('customOutputCode');
-            navigator.clipboard.writeText(code.textContent)
-                .then(() => alert('Kode custom berhasil disalin!'))
-                .catch(err => {
-                    console.error('Gagal menyalin: ', err);
-                    alert('Gagal menyalin kode. Silakan salin secara manual.');
-                });
-        }
-        
-        // Tampilkan contoh script saat halaman dimuat
-        window.onload = function() {
-            processScript();
-        };
+            // Animasi untuk fitur-fitur
+            const features = document.querySelectorAll('.feature');
+            features.forEach((feature, index) => {
+                feature.style.opacity = '0';
+                feature.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    feature.style.transition = 'all 0.5s ease';
+                    feature.style.opacity = '1';
+                    feature.style.transform = 'translateY(0)';
+                }, 800 + (index * 200));
+            });
+        });
     </script>
 </body>
-    </html>
+                </html>
